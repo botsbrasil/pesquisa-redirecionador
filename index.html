@@ -1,0 +1,23 @@
+<h2>Se você não for automaticamente direcionado, <a id="pesquisa" href="#">Acesse a Pesquisa</a></h2>
+<script>
+    String.prototype.hashCode = function() {
+        var hash = 0;
+        if (this.length == 0) {
+            return hash;
+        }
+        for (var i = 0; i < this.length; i++) {
+            var char = this.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash.toString(16).padStart(6,"0");
+    }
+
+    function cb(response) {
+        document.getElementById('visits').innerText = "Seu ID é: " + response.value.hashCode();
+        let url = `https://docs.google.com/forms/d/e/1FAIpQLSdFdi9GV80VgrFMq-eMQZAD_yhy6W4E8LQ9eItW6x5XS_7tvg/viewform?usp=pp_url&entry.1758690655=${response.value.hashCode()}`
+        window.location.href = url;
+        document.getElementById('pesquisa').setAttribute("href", url);
+    }
+</script>
+<script async src="https://api.countapi.xyz/hit/testebotspesquisa/visits?callback=cb"></script>
