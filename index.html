@@ -1,7 +1,7 @@
 <h2>Se você não for automaticamente direcionado, <a id="pesquisa" href="#">Acesse a Pesquisa</a></h2>
 <script>
-    function getCode(i) {
-        let s = i.toString()
+    function getCode(number) {
+        let s = number.toString()
         var hash = 0;
         if (s.length == 0) {
             return hash;
@@ -15,7 +15,7 @@
     }
 
     function cb(response) {
-        const ID = getCode(i)
+        const ID = getCode(repsonse.value)
         document.getElementById('visits').innerText = "Seu ID é: " + ID;
         let url = `https://docs.google.com/forms/d/e/1FAIpQLSdFdi9GV80VgrFMq-eMQZAD_yhy6W4E8LQ9eItW6x5XS_7tvg/viewform?usp=pp_url&entry.1758690655=${ID}`
         window.location.href = url;
