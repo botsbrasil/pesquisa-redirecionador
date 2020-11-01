@@ -15,7 +15,7 @@
     }
 
     function cb(response) {
-        const ID = getCode(repsonse.value)
+        const ID = getCode(response.value)
         document.getElementById('visits').innerText = "Seu ID é: " + ID;
         let url = `https://docs.google.com/forms/d/e/1FAIpQLSdFdi9GV80VgrFMq-eMQZAD_yhy6W4E8LQ9eItW6x5XS_7tvg/viewform?usp=pp_url&entry.1758690655=${ID}`
         window.location.href = url;
